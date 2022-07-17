@@ -10,5 +10,4 @@ public class SocialApiApplication {
 		SpringApplication.run(SocialApiApplication.class, args);
 		System.out.println("hey");
 	}
-
 }

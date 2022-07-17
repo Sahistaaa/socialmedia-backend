@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,13 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "User")
 public class User {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private UUID userID;
 	private String userName;
 	private String userImage;
@@ -27,7 +26,7 @@ public class User {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "us_stts", referencedColumnName = "userID")
 	List<Status> status = new ArrayList<>();
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "us_po", referencedColumnName = "userID")
 	List<Post> posts = new ArrayList<>();
@@ -88,7 +87,7 @@ public class User {
 		this.posts = posts;
 	}
 
-	public User(String userID, String userName, String userImage, boolean active, Timestamp joiningDate,
+	public User(UUID userID, String userName, String userImage, boolean active, Timestamp joiningDate,
 			List<Status> status, List<Post> posts) {
 		super();
 		this.userID = userID;
@@ -102,11 +101,7 @@ public class User {
 
 	public User() {
 		super();
-		//TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
-	
+
 }

@@ -23,7 +23,7 @@ public class Post {
 	private String postImgURL;
 	private int likes;
 	private Timestamp dateTime;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "po_co", referencedColumnName = "postID")
 	List<Comment> comments = new ArrayList<>();
@@ -107,10 +107,7 @@ public class Post {
 
 	public Post() {
 		super();
-		//TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
+
 }
