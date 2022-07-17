@@ -1,0 +1,12 @@
+user service - getUserDetails by id is not working.
+post service - delete post is not working.
+
+rest of the api's are working 
+but there is no connection between them 
+post is not getting comments 
+the tables are mapped but they are not working , they are not sending/receiving the correct information.
+
+1. checked all the api's.
+2. Cleared the bug of some api.
+3. Impplemented log4j(console + file).
+4. trying to do the lombok.
