@@ -22,7 +22,7 @@ public class UserService {
 		long time = date.getTime();
 		Timestamp dateTime = new Timestamp(time);
 
-		user.setUserID(UUID.randomUUID());
+		user.setUserID((long) (Math.random() * 100));
 		user.setActive(true);
 		user.setJoiningDate(dateTime);
 
@@ -33,7 +33,7 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public User getUserData(UUID userID) {
+	public User getUserData(Long userID) {
 		return userRepository.findAllByuserID(userID);
 	}
 }

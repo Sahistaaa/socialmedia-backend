@@ -40,7 +40,7 @@ public class UserController {
 	}
 
 	@GetMapping("/apiAllUsers/{userID}")
-	public User getUserDetail(@PathVariable("userID") UUID userID) {
+	public User getUserDetail(@PathVariable("userID") Long userID) {
 		logger.info("User service apiAllUsers hit ..........");
 		return userService.getUserData(userID);
 	}

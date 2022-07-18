@@ -5,18 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Post")
 public class Post {
 	@Id
-	private UUID postID;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long postID;
 	private String userName;
 	private String imageURL;
 	private String description;
@@ -28,11 +24,11 @@ public class Post {
 	@JoinColumn(name = "po_co", referencedColumnName = "postID")
 	List<Comment> comments = new ArrayList<>();
 
-	public UUID getPostID() {
+	public Long getPostID() {
 		return postID;
 	}
 
-	public void setPostID(UUID postID) {
+	public void setPostID(Long postID) {
 		this.postID = postID;
 	}
 
@@ -92,7 +88,7 @@ public class Post {
 		this.comments = comments;
 	}
 
-	public Post(UUID postID, String userName, String imageURL, String description, String postImgURL, int likes,
+	public Post(Long postID, String userName, String imageURL, String description, String postImgURL, int likes,
 			Timestamp dateTime, List<Comment> comments) {
 		super();
 		this.postID = postID;

@@ -43,8 +43,9 @@ public class PostController {
 		return result;
 	}
 
+
 	@DeleteMapping("/delete/{postId}")
-	public ArrayList<Post> deleteParticularPost(@PathVariable("postId") UUID postID) {
+	public ArrayList<Post> deleteParticularPost(@PathVariable("postId") Long postID) {
 		logger.info("post service delete hit ..........");
 		ArrayList<Post> result = postService.deletePostFromDB(postID);
 		return result;

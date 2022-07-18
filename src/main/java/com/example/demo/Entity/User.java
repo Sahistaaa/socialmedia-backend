@@ -5,19 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "User")
 public class User {
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private UUID userID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long userID;
 	private String userName;
 	private String userImage;
 	private boolean active;
@@ -31,11 +26,11 @@ public class User {
 	@JoinColumn(name = "us_po", referencedColumnName = "userID")
 	List<Post> posts = new ArrayList<>();
 
-	public UUID getUserID() {
+	public Long getUserID() {
 		return userID;
 	}
 
-	public void setUserID(UUID userID) {
+	public void setUserID(Long userID) {
 		this.userID = userID;
 	}
 
@@ -87,7 +82,7 @@ public class User {
 		this.posts = posts;
 	}
 
-	public User(UUID userID, String userName, String userImage, boolean active, Timestamp joiningDate,
+	public User(Long userID, String userName, String userImage, boolean active, Timestamp joiningDate,
 			List<Status> status, List<Post> posts) {
 		super();
 		this.userID = userID;
